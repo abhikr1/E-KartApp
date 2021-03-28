@@ -3,6 +3,20 @@ const router = express.Router();
 const auth = require('../middlewares/auth');
 const Cart = require('../models/cart');
 const Product = require('../models/products')
+
+
+router.get('/mycart', (req,res) => {
+    Cart.find({ _id: req.session.userId }).then( cart => {
+    
+        if(cart)
+        res.send({"message":req.session.userId});
+        else{
+        res.send({"message":req.session.userId})
+        }
+    }).catch(() => {
+        res.status(500).send({ error: "Internal Server Error" });
+    });
+})
 router.post('/mycart', (req, res) => {
     console.log("Hi");
 

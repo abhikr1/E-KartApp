@@ -25,7 +25,7 @@ function Header() {
 <span class="login" onClick={click}>Login</span>
 <span style={{margin: "0 10px 0 10px"}}>|</span>
 </div>
-<div class = "login">
+<div class = "login"  onClick={() => categoriesClick()}>
   Cart
 </div>
 </header>
@@ -43,7 +43,13 @@ function SearchBar(){
     </div>);
 }
 
+const categoriesClick = () => {
+  console.log('dsjvjvnvx');
+  return (
+    window.location = `/products/mycart`
+ );
 
+}
 
 export default Header;
 

@@ -15,7 +15,7 @@ class ProductListingPage extends React.Component {
         const image = `/images/${src}.jpeg`;
         const {imggg} = "/images/groceryicon.jpeg";
         return (
-            <div class="grid-item" onClick={() => categoriesClick('{this.props.title}')}>   
+            <div class="grid-item" onClick={() => categoriesClick(this.props.id)}>   
 
 <img src = {image} height="100" alt="NotAvailable"></img>{this.props.title} {this.props.price} {this.props.description}</div>
         
@@ -23,11 +23,11 @@ class ProductListingPage extends React.Component {
     }
 }
 
-    const categoriesClick = (pid) => {
+    const categoriesClick = (productid) => {
         console.log('dsjvjvnvx');
-        console.log(`hi ${pid}`);
+        console.log(`hi ${productid}`);
         return (
-          window.location = `/products/${pid}`
+          window.location = `/products/${productid}`
        );
       
       }

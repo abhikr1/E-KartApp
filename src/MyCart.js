@@ -44,6 +44,7 @@ class ProductDetails extends React.Component {
     async componentDidMount() {
       const product = await this.getRandomUsers();
       this.setState({ product });
+      console.log()
     }
 
    
