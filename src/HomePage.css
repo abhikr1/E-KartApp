@@ -1,0 +1,19 @@
+.form-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-display {
+    width: auto;
+    height: 100vh;
+    font-family: 'Nunito', sans-serif;
+}
+
+.display1 {
+    opacity: 0.5;
+}
+
+.display2 {
+    overflow-y: hidden;
+}
