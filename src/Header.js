@@ -33,10 +33,6 @@ function Header() {
 }
 
 function SearchBar(){
-  console.log("AAAAAAAAAA");
-  console.log("BBBBBBBBB");
-  console.log("CCCCCCCCCCC");
-
   return (<div class="SearchBar">
     <input className="SearchInput" type="text" placeholder="Search for products..."></input>
     <div className="SearchIconWrapper"><img className="SearchIcon" src={'/images/search-24px.svg'} alt='searchIcon'/></div>
@@ -46,7 +42,7 @@ function SearchBar(){
 const categoriesClick = () => {
   console.log('dsjvjvnvx');
   return (
-    window.location = `/products/mycart`
+    window.location = `/carts/mycarts`
  );
 
 }

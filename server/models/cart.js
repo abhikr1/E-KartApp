@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const cartSchema = new Schema({
-    productId : {
-        type : String
-    },
-    quantity : Number,
+    items : [{
+        productId : String,
+        quantity : Number
+    }],
+
     price : {
         mrp : Number,
         lp : Number

@@ -4,7 +4,6 @@ import Header from './Header';
 import Categories from './Categories';
 import './Product.css';
 
-
 class ProductListingPage extends React.Component {
     constructor(props) {
         super(props);
@@ -13,17 +12,20 @@ class ProductListingPage extends React.Component {
         const src = this.props.title;
         console.log(this.props.id);
         const image = `/images/${src}.jpeg`;
-        const {imggg} = "/images/groceryicon.jpeg";
+        const imggg = "/images/iphone11.jpeg";
         return (
             <div class="grid-item" onClick={() => categoriesClick(this.props.id)}>   
 
-<img src = {image} height="100" alt="NotAvailable"></img>{this.props.title} {this.props.price} {this.props.description}</div>
+<img src = {imggg} height="100" alt="NotAvailable"></img>{this.props.title} {this.props.price} {this.props.description}
+
+</div>
         
         );
     }
 }
 
     const categoriesClick = (productid) => {
+      console.log("hello")
         console.log('dsjvjvnvx');
         console.log(`hi ${productid}`);
         return (

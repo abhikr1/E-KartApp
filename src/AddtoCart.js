@@ -12,11 +12,11 @@ class  MyCarts extends React.Component {
       console.log("hhhh")
       const src = this.props.title;
       console.log(this.props.id);
-      const image = `/images/${src}.jpg`;
+      const image = `/images/${src}.jpeg`;
       return (
           <div class="grid-item">   
 
-<img src = {image} height="100" alt="NotAvailable"></img>{this.props.id}
+<img src = {image} height="100" alt="NotAvailable"></img>{this.props.title} {this.props.id}
 <button onClick={() => categoriesClick(this.props.id)}>Add to Cart</button>
 </div>
       );
@@ -30,7 +30,7 @@ const categoriesClick = (productid) => {
    );
   
   }
-class MyCart extends React.Component {
+class AddtoCart extends React.Component {
     constructor(props) {
       super(props);
   
@@ -43,7 +43,15 @@ class MyCart extends React.Component {
   
     async getRandomUsers() {
       
-      const res = await fetch(`/api/cart/mycart`);
+    //   const res = await fetch(`/api/cart/mycartnew`);
+
+      const res = await fetch(`/api/cart/${this.props.match.params.productid}`, {
+        method: 'POST',
+        body: JSON.stringify({}),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8'
+        }
+      });
       const data = await res.json();
       console.log(data);
       return data;
@@ -53,7 +61,6 @@ class MyCart extends React.Component {
     console.log("Helllo");
       const cart = await this.getRandomUsers();
       this.setState({ cart });
-      console.log()
     }
 
    
@@ -62,14 +69,10 @@ class MyCart extends React.Component {
             <div>
               <Header/>
               <Categories/>
-                <MyCarts
-                id={this.state.cart._id}
-                />
-
-
+            
               
          </div>
         );
     }
   }
-  export default MyCart;
+  export default AddtoCart;

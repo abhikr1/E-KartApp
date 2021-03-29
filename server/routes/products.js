@@ -38,6 +38,7 @@ router.get('/:productid', (req,res) => {
            if(!user) {       
               res.status(404).send();      
            }
+           console.log(user._id)
            res.send(user);
          }).catch((e) => {      
             res.status(400).send(e);    

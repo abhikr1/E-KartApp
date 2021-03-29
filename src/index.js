@@ -6,16 +6,18 @@ import './index.css';
 import ProductLists from './ProductLists';
 import ProductDetails from './ProductDetails';
 import MyCart from './MyCart';
+import AddtoCart from './AddtoCart';
 
 function App() {
   return (
       <Router>
           <Switch>
+          <Route exact path='/'  component={HomePage} />
+
           <Route exact path="/products/category/:cartegoryname" component={ProductLists} />
           <Route exact path="/products/:productid" component={ProductDetails} />
-          <Route exact path="/mycarts" component={MyCart} />
-
-              <Route exact path='/'  component={HomePage} />
+          <Route exact path="/carts/mycarts" component={MyCart} />
+          <Route exact path="/cart/:productid" component = {AddtoCart} />
           </Switch>
       </Router>
   );
