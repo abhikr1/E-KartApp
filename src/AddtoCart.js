@@ -2,6 +2,7 @@
 import React from 'react';
 import Header from './Header';
 import Categories from './Categories';
+import MyCart from './MyCart';
 
 
 class  MyCarts extends React.Component {
@@ -66,12 +67,8 @@ class AddtoCart extends React.Component {
    
     render() {
         return (
-            <div>
-              <Header/>
-              <Categories/>
-            
+          window.location = `/cart/cartitems`
               
-         </div>
         );
     }
   }

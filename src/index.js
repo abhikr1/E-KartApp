@@ -16,7 +16,7 @@ function App() {
 
           <Route exact path="/products/category/:cartegoryname" component={ProductLists} />
           <Route exact path="/products/:productid" component={ProductDetails} />
-          <Route exact path="/carts/mycarts" component={MyCart} />
+          <Route exact path="/cart/cartitems" component={MyCart} />
           <Route exact path="/cart/:productid" component = {AddtoCart} />
           </Switch>
       </Router>

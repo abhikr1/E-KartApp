@@ -42,7 +42,7 @@ function SearchBar(){
 const categoriesClick = () => {
   console.log('dsjvjvnvx');
   return (
-    window.location = `/carts/mycarts`
+    window.location = `/cart/cartitems`
  );
 
 }

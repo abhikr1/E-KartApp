@@ -6,6 +6,18 @@ const Product = require('../models/products')
 
 
   
+router.get('/cartitems', (req, res) => {
+    console.log("JJJJJJj")
+    Cart.findOne({ _id: req.session.cartId }).then(user => {
+        if(user)
+        res.send(user);
+        else
+        res.send({message : "No products"})
+    }).catch(() => {
+        res.status(500).send({ error: "Internal Server Error" });
+    });
+});
+
 router.post('/mycart', (req, res) => {
     console.log("Hi");
 

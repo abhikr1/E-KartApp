@@ -56,7 +56,7 @@ class ProductLists extends React.Component {
     async componentDidMount() {
       const products = await this.getRandomUsers();
       this.setState({ products });
-      console.log()
+      console.log(this.state.products);
     }
 
    
