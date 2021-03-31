@@ -34,7 +34,8 @@ router.get('/allproducts', (req, res) =>{
     
 router.get('/:productid', (req,res) => {
     Product.find({ _id: req.params.productid})
-    .then(user => {       
+    .then(user => {  
+        console.log("zzzzzzzzz")     
            if(!user) {       
               res.status(404).send();      
            }

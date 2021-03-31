@@ -17,7 +17,7 @@ class  MyCarts extends React.Component {
       return (
           <div class="grid-item">   
 
-<img src = {image} height="100" alt="NotAvailable"></img>{this.props.id} --- {this.props.quantity}
+<img src = {image} height="100" alt="NotAvailable"></img>{this.props.id} --- {this.props.quantity}  --{this.props.price}
 {/* <button onClick={() => categoriesClick(this.props.id)}>Add to Cart</button> */}
 </div>
       );
@@ -37,6 +37,7 @@ class MyCart extends React.Component {
   
       this.state = {
         items: [],
+        price : {}
       };
   
       this.getRandomUsers = this.getRandomUsers.bind(this);
@@ -54,8 +55,10 @@ class MyCart extends React.Component {
     async componentDidMount() {
     console.log("Helllo");
       const cart = await this.getRandomUsers();
+
       //console.log(cart)
       this.setState({ items : cart.items });
+      this.setState({price : cart})
       //console.log(this.state.items);
     }
 
@@ -64,7 +67,7 @@ class MyCart extends React.Component {
       //console.log("ggggg")
       let arr = [];
       //console.log(arr);
-      console.log(this.state.items[0])
+      // console.log(this.state.items[0])
       let ar = [];
       ar[0] = "aa";
       ar[1] = "bb";
@@ -79,9 +82,10 @@ class MyCart extends React.Component {
                 <MyCarts
                 id = {eachitem.productId}
                 quantity = {eachitem.quantity}
+                price = {eachitem.productprice}
                 />
                 )))}
-              
+                <div><h1>Total Price ---- {this.state.price.totalprice}</h1></div>
          </div>
         );
     }

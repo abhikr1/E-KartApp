@@ -4,13 +4,10 @@ const { Schema } = mongoose;
 const cartSchema = new Schema({
     items : [{
         productId : String,
-        quantity : Number
+        quantity : Number, 
+        productprice : Number
     }],
-
-    price : {
-        mrp : Number,
-        lp : Number
-    }
+    totalprice : Number
 });
 
 module.exports = mongoose.model('Cart', cartSchema);
