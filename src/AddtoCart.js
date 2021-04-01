@@ -1,8 +1,5 @@
 
 import React from 'react';
-import Header from './Header';
-import Categories from './Categories';
-import MyCart from './MyCart';
 
 
 class  MyCarts extends React.Component {
@@ -59,7 +56,7 @@ class AddtoCart extends React.Component {
     }
   
     async componentDidMount() {
-    console.log("Helllo");
+    console.log("JAI MATA DI");
       const cart = await this.getRandomUsers();
       this.setState({ cart });
     }

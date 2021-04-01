@@ -1,0 +1,111 @@
+.SearchBar {
+    background-color: whitesmoke;
+    height: 39px;
+    width: 400px;
+    border: none;
+  }
+  
+  .companyLogo a {
+    color:rgb(77, 80, 83);
+    text-decoration: none;
+    font-size: 40px;
+    float: left;
+  }
+  
+  .logoY {
+    border-radius: 50%;
+    background-color: #84c225;
+  }
+  
+  .login:hover {
+    cursor: pointer;
+  
+  }
+  
+  .signup:hover {
+    cursor: pointer;
+  
+  }
+  
+  .cart-icon {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    padding-top: 20px;
+  }
+  
+  .SearchInput {
+      background-color: whitesmoke;
+    padding-left: 10px;
+    width: 393px;
+    height: 30px;
+    margin: 3px 5px 5px 5px;
+    font-size: 15px;
+    border: none;
+  }
+  
+  .SearchIcon {
+    height: 20px;
+    width: 20px;
+  }
+  
+  .SearchIcon:hover {
+    cursor: pointer;
+  }
+  
+  .SearchIconWrapper {
+    padding-left: 5px;
+    height: 30px;
+    width: 35px;
+  
+  }
+  #hamburger {
+    margin-top: 14px;
+  }
+  
+  #hamburger:active{
+    background-color:#d4d4d4;
+  }
+
+    .navbar {
+      /*added flex wrap..change in all*/
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          flex-wrap: wrap;
+          line-height: 53px;
+          background-color: white;
+          position: sticky;
+          z-index: 999;
+          top: 0;
+          box-shadow: 1px 2px 2px rgb(0 0 0 / 10%), -1px -1px 2px rgb(0 0 0 / 8%);
+          margin-top: 0;
+    } 
+  
+    .dropdown-arrow{
+      height: 10px;
+      width: 10px
+    }
+  .category{
+      display: flex;
+      justify-content: space-between;
+    flex-direction: row;
+    float: left;
+    flex-wrap: wrap;
+
+  }
+
+  .cart-icon {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    padding-top: 0px;
+    margin-top: 2px;
+  }
+  .companyLogo{
+      padding-top: 8px;
+  }
+  .category{
+    cursor: pointer;
+
+  }

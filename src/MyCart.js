@@ -2,7 +2,8 @@
 import React from 'react';
 import Header from './Header';
 import Categories from './Categories';
-
+import NavBar from './NavBar'
+import {Shippings} from './Shipping';
 
 class  MyCarts extends React.Component {
   constructor(props) {
@@ -15,19 +16,21 @@ class  MyCarts extends React.Component {
       console.log(this.props.id);
       const image = `/images/${src}.jpg`;
       return (
+        <div>
           <div class="grid-item">   
 
 <img src = {image} height="100" alt="NotAvailable"></img>{this.props.id} --- {this.props.quantity}  --{this.props.price}
 {/* <button onClick={() => categoriesClick(this.props.id)}>Add to Cart</button> */}
 </div>
+<button onClick={() => categoriesClick()}>PROCEED TO CHECKOUT</button>
+</div>
       );
   }
 }
-const categoriesClick = (productid) => {
-    console.log('dsjvjvnvx');
-    console.log(`hi ${productid}`);
+const categoriesClick = () => {
+console.log("GGGGGGGG")
     return (
-      window.location = `/cart/mycart`
+      window.location = "/shipping"
    );
   
   }
@@ -75,8 +78,7 @@ class MyCart extends React.Component {
 
         return (
             <div>
-              <Header/>
-              <Categories/>
+              <NavBar/>
               
                 {(this.state.items.map((eachitem) => (
                 <MyCarts

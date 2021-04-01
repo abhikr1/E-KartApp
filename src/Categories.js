@@ -7,7 +7,7 @@ function Categories() {
   return (
     <div className="category">
     <div>
-    <img src = "/images/fashionicon.png" alt="NotAvailable" onClick={() => categoriesClick('Mobiles')}></img>
+    <img src = "/images/fashionicon.png" alt="NotAvailable" onClick={() => categoriesClick('Men')}></img>
     </div>
   <div onClick={click}> 
   <img src = "/images/mobileIcon.png" alt="NotAvailable"></img>

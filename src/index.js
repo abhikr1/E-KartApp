@@ -7,7 +7,10 @@ import ProductLists from './ProductLists';
 import ProductDetails from './ProductDetails';
 import MyCart from './MyCart';
 import AddtoCart from './AddtoCart';
-
+import Shipping from './Shipping';
+import PlaceOrder from './PlaceOrder';
+import Payment from './Payment';
+import Order from './Order'
 function App() {
   return (
       <Router>
@@ -18,6 +21,11 @@ function App() {
           <Route exact path="/products/:productid" component={ProductDetails} />
           <Route exact path="/cart/cartitems" component={MyCart} />
           <Route exact path="/cart/:productid" component = {AddtoCart} />
+          <Route exact path="/shipping" component = {Shipping} />
+          <Route exact path="/placeorder" component = {PlaceOrder} />
+          <Route exact path="/orders/:id" component = {Order} />
+
+          
           </Switch>
       </Router>
   );

@@ -4,14 +4,16 @@ import Header from "./Header";
 import Banner from "./Banner";
 import Categories from "./Categories"
 import Product from "./Product"
+import NavBar from "./NavBar"
+import Deals from "./Deals";
 
 const HomePage = () => {
 
     return (
       <div className="App">
-        <Header/>
-        <Categories/>
+        <NavBar/>
         <Banner/>
+        <Deals/>
         <Product/>
         <Footer /> 
       </div>

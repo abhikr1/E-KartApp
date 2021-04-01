@@ -12,6 +12,7 @@ const productSchema = new Schema({
     price : {
         mrp : Number,
         lp : Number
-    }
+    },
+    name : String
 }); 
 module.exports = mongoose.model('Product', productSchema);

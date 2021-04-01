@@ -64,7 +64,7 @@ router.post('/myproducts', (req, res) => {
     //     return;
     // }
 
-    const {title, description,category, mrp, lp} = req.body;
+    const {title, description,category, mrp, lp, name} = req.body;
     console.log(req.body);
     console.log(req.body.title);
     if (!title) {
@@ -90,7 +90,7 @@ router.post('/myproducts', (req, res) => {
 
         console.log(mrp);
         console.log(lp);
-        const product = new Product({title : title, description :  description,category : category, "price.mrp" : mrp,"price.lp" : lp});
+        const product = new Product({title : title, description :  description,category : category, "price.mrp" : mrp,"price.lp" : lp, name : name});
         console.log("hhhhhh")
         product.save().then(() => {
             

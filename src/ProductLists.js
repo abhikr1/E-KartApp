@@ -1,33 +1,29 @@
 import React from 'react';
 
-import Header from './Header';
-import Categories from './Categories';
 import './Product.css';
-
+import NavBar from './NavBar';
 class ProductListingPage extends React.Component {
     constructor(props) {
         super(props);
     }
     render (){
-        const src = this.props.title;
+        const src = this.props.name;
         console.log(this.props.id);
-        const image = `/images/${src}.jpeg`;
+        const image = `/images/${src}.jpg`;
         const imggg = "/images/iphone11.jpeg";
         return (
-            <div class="grid-item" onClick={() => categoriesClick(this.props.id)}>   
 
-<img src = {imggg} height="100" alt="NotAvailable"></img>{this.props.title} {this.props.price} {this.props.description}
-
+<div class="grid-container" onClick={() => categoriesClick(this.props.id)}>   
+<div class = "grid-item">
+<img src = {image} height="100" alt="NotAvailable" height="200px" width = "150px"></img><h4>{this.props.name}</h4>{this.props.title} <h4>Price : {this.props.price}$ </h4>
+</div>
 </div>
         
-        );
+        );  
     }
 }
 
     const categoriesClick = (productid) => {
-      console.log("hello")
-        console.log('dsjvjvnvx');
-        console.log(`hi ${productid}`);
         return (
           window.location = `/products/${productid}`
        );
@@ -49,28 +45,27 @@ class ProductLists extends React.Component {
     async getRandomUsers() {
       const res = await fetch(`/api/products/category/${this.props.match.params.cartegoryname}`);
       const data = await res.json();
-      console.log(data);
       return data;
     }
   
     async componentDidMount() {
       const products = await this.getRandomUsers();
       this.setState({ products });
-      console.log(this.state.products);
     }
 
    
     render() {
         return (
             <div>
-             <Header/>
-            <Categories/>
+             <NavBar/>
             {(this.state.products).map((product) => (
                 <ProductListingPage
                 title={product.title}
                 price={product.price.mrp}
                 description={product.description}
                 id = {product._id}
+                name = {product.name}
+    
                 />
 
 
