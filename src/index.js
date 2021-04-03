@@ -9,8 +9,9 @@ import MyCart from './MyCart';
 import AddtoCart from './AddtoCart';
 import Shipping from './Shipping';
 import PlaceOrder from './PlaceOrder';
-import Payment from './Payment';
-import Order from './Order'
+import LoginPage from './LoginPage';
+import SignUp from './SignUp'
+import Orders from './Orders'
 function App() {
   return (
       <Router>
@@ -23,8 +24,9 @@ function App() {
           <Route exact path="/cart/:productid" component = {AddtoCart} />
           <Route exact path="/shipping" component = {Shipping} />
           <Route exact path="/placeorder" component = {PlaceOrder} />
-          <Route exact path="/orders/:id" component = {Order} />
-
+          <Route exact path="/login" component = {LoginPage} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/order/myorders" component={Orders} />
           
           </Switch>
       </Router>
@@ -34,14 +36,3 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
-
-
-
-{/* <Router>
-{/* A <Switch> looks through its children <Route>s and
-    renders the first one that matches the current URL. */}
-{/* <Switch>
-  <Route exact path="/" component={LoginPage} />
-  <Route exact path="/profile" component={Profile} />
-</Switch>
-</Router>  */}
