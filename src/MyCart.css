@@ -1,0 +1,128 @@
+.addtocartbutton {
+    width: 40%;
+    border-radius: 0;
+    padding: 12px 15px;
+    min-width: 108px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #ff3e6c;
+    border: 1px solid #ff3e6c;
+    border-color: #ff3e6c;
+    border-radius: 3%;;
+    color: #fff;
+    font-size: medium;
+    align-items: center;
+    margin-right: 3%;
+    margin-top: 5%;
+}
+.removefromcartbutton{
+    border-radius: 0;
+    padding: 12px 15px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color:whitesmoke;
+    border: 1px solid whitesmoke;
+    border-color: whitesmoke;
+    border-radius: 3%;;
+    color:black;
+}
+.grid-container22{
+    margin-top: 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr ;
+      grid-gap: 5px;
+      background-color: whitesmoke;
+    }
+.grid-container33{
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-gap: 5px;
+        background-color: whitesmoke;
+      }
+
+.grid-container44{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-gap: 5px;
+    background-color: whitesmoke;
+}
+
+.box2{
+    border:solid;
+    align-items: center;
+    margin-left: 50;
+}
+.grid-items1{
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.05), 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    color: #333;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.grid-items2{
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.05), 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    color: #333;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+    justify-content: space-around;
+    padding-top: 40%;
+}
+.grid-items3{
+    box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.1);
+
+    background-color: #fff;
+    color: #333;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+    justify-content: space-around;
+}
+.grid-items4{
+    box-shadow: inset 0 -10px 10px -10px 0;
+
+    background-color: #fff;
+    color: #333;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+    justify-content: space-around;
+}
+
+
+.grid-items5{
+    box-shadow: inset 0 -10px 10px -10px 0;
+
+    background-color: #fff;
+    color: #333;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 1%;
+    padding-top: 20%;
+    text-align: center;
+    justify-content: space-around;
+}
+.test{
+    padding-bottom: 10px;
+    padding-top: 2%;
+}

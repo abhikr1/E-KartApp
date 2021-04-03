@@ -1,9 +1,7 @@
 
 import React from 'react';
-import Header from './Header';
-import Categories from './Categories';
 import NavBar from './NavBar'
-import {Shippings} from './Shipping';
+import './MyCart.css'
 
 class  MyCarts extends React.Component {
   constructor(props) {
@@ -14,19 +12,54 @@ class  MyCarts extends React.Component {
       const src = this.props.title;
       console.log("llll")
       console.log(this.props.id);
-      const image = `/images/${src}.jpg`;
+      const image = `/images/${this.props.id}.jpg`;
       return (
-        <div>
-          <div class="grid-item">   
+        <div class="grid-container33">   
+              <div class = "grid-items3">
+    <img src = {image} height="100" alt="NotAvailable" height="200px" width = "150px"></img>
+    </div>
+    <div class = "grid-items3">
+    <div class="grid-container44">   
+    <div class = "grid-items4">
+      <div>
+        <strong>{this.props.name}</strong>
+      </div>
+      <br>
+      </br>
+      <div>
+        <strong>{this.props.title}</strong>
+      </div>
+      <br>
+      </br>
 
-<img src = {image} height="100" alt="NotAvailable"></img>{this.props.id} --- {this.props.quantity}  --{this.props.price}
-{/* <button onClick={() => categoriesClick(this.props.id)}>Add to Cart</button> */}
-</div>
-<button onClick={() => categoriesClick()}>PROCEED TO CHECKOUT</button>
+
+    <span>Quantity: {this.props.quantity}</span>
+    <div class = "test">
+<span>
+  <button class = "removefromcartbutton" onClick={() => onRemoveClick(this.props.id)} >REMOVE</button>
+  </span>
+  </div>
+    </div>
+    <div class = "grid-items5">
+         <strong>Price : Rs. {this.props.price}</strong> 
+      </div>
+    </div>
+
+
+  </div>
 </div>
       );
   }
 }
+const onRemoveClick = (productid) => {
+    fetch(`/api/cart/${productid}`, {
+      method: 'DELETE'
+    }).then(res => {
+      if (res.status === 204) {
+        window.location = '/';
+      }
+    });
+  }
 const categoriesClick = () => {
 console.log("GGGGGGGG")
     return (
@@ -62,32 +95,33 @@ class MyCart extends React.Component {
       //console.log(cart)
       this.setState({ items : cart.items });
       this.setState({price : cart})
+
       //console.log(this.state.items);
     }
 
    
     render() {
-      //console.log("ggggg")
-      let arr = [];
-      //console.log(arr);
-      // console.log(this.state.items[0])
-      let ar = [];
-      ar[0] = "aa";
-      ar[1] = "bb";
-      console.log("www");
-
         return (
             <div>
               <NavBar/>
-              
+              <div class="grid-container22">   
+              <div class = "grid-items1">
                 {(this.state.items.map((eachitem) => (
                 <MyCarts
                 id = {eachitem.productId}
+                name = {eachitem.name}
+                title = {eachitem.title}
                 quantity = {eachitem.quantity}
                 price = {eachitem.productprice}
                 />
                 )))}
-                <div><h1>Total Price ---- {this.state.price.totalprice}</h1></div>
+                </div>
+                <div class = "grid-items2">
+                <div><h3>Total Amount : Rs. {this.state.price.totalprice}</h3></div>
+                <button class = "addtocartbutton" onClick={() => categoriesClick()}>PLACE ORDER</button>
+
+                </div>
+                </div>
          </div>
         );
     }

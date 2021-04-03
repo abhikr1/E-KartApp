@@ -3,27 +3,45 @@ import React from 'react';
 import Header from './Header';
 import Categories from './Categories';
 import NavBar from './NavBar';
-
+import './ProductDetail.css';
 
 class ProductDetail extends React.Component {
   constructor(props) {
       super(props);
   }
   render (){
-      const src = this.props.name;
+      const src = this.props.id;
       const image = `/images/${src}.jpg`;
-      const imggg = "/images/iphone11.jpeg";
+      const image2 = `/images/${src}_2.jpg`;
       return (
-        <div class="grid-container">   
-
-<img src = {image} height="100" alt="NotAvailable" height = "600px" widht = "150px"></img><h4>{this.props.title}</h4> <h4>{this.props.price}</h4> {this.props.description}
-
-<div>
-<button onClick={() => categoriesClick(this.props.id)}>Add to Cart</button>
+        <div>
+        <div class="grid-containerdet"> 
+        <div>
+  <img src = {image} height="100" alt="NotAvailable" height = "600px" widht = "150px"></img>
+  </div>
+  <div>
+  <img src = {image2} height="100" alt="NotAvailable" height = "600px" widht = "150px"></img>
+  </div>
+  <div>
+  
+  <div class = "pdp-name">{this.props.name}</div>
+  <div class = "pdp-title">{this.props.title}</div> 
+  <div class = "pdp-price">
+  <strong>Rs. {this.props.price}          </strong>
+  <span class = "pdp-mrp">
+  <strike>Rs. {this.props.lp}</strike>
+  </span>
+  </div>
+  <div class ="desc">
+   {this.props.description}
+   </div>
+  <div class = "addtocartbutton2">
+  <button class = "addtocartbutton" onClick={() => categoriesClick(this.props.id)}><span class = "addtocarttext">ADD TO CART</span></button>
+  </div>
+  </div>
+</div>
 
 </div>
-</div>
-
       
       );
   }
@@ -67,6 +85,7 @@ class ProductDetails extends React.Component {
                 <ProductDetail
                 title={prod.title}
                 price={prod.price.mrp}
+                lp = {prod.price.lp}
                 description={prod.description}
                 id = {prod._id}
                 name = {prod.name}

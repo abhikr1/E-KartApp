@@ -1,0 +1,68 @@
+.grid-containerdet {
+    margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr ;
+      grid-gap: 5px;
+      background-color: whitesmoke;
+    }
+
+    .pdp-name {
+        color: #282c3f;
+        padding: 0 20px 0 0;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1;
+    }
+
+    .pdp-name, .pdp-title {
+        margin-top: 9%;
+        margin-bottom: 0;
+    }
+
+    .pdp-title {
+        color: #535665;
+        padding: 5px 20px 14px 0;
+        font-size: 20px;
+        opacity: .8;
+        font-weight: 400;
+    }
+
+    .pdp-price {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1;
+        cursor: pointer;
+    }    
+
+    .pdp-mrp {
+        height: 22px;
+        opacity: .8;
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
+    .addtocartbutton {
+        width: 40%;
+        border-radius: 0;
+        padding: 12px 15px;
+        min-width: 108px;
+        font-weight: 500;
+        cursor: pointer;
+        background-color: #ff3e6c;
+        border: 1px solid #ff3e6c;
+        border-color: #ff3e6c;
+        border-radius: 3%;;
+        color: #fff;
+        font-size: medium;
+        align-items: center;
+        margin-right: 3%;
+        margin-top: 5%;
+    }
+    
+ 
+
+.desc{
+    margin-top: 7%;
+    font-weight: 400;
+    font-size: medium;
+}        

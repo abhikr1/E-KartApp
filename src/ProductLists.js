@@ -9,14 +9,12 @@ class ProductListingPage extends React.Component {
     render (){
         const src = this.props.name;
         console.log(this.props.id);
-        const image = `/images/${src}.jpg`;
+        const image = `/images/${this.props.id}.jpg`;
         const imggg = "/images/iphone11.jpeg";
         return (
 
-<div class="grid-container" onClick={() => categoriesClick(this.props.id)}>   
-<div class = "grid-item">
-<img src = {image} height="100" alt="NotAvailable" height="200px" width = "150px"></img><h4>{this.props.name}</h4>{this.props.title} <h4>Price : {this.props.price}$ </h4>
-</div>
+<div class = "grid-item" onClick={() => categoriesClick(this.props.id)}>
+<img src = {image} height="100" alt="NotAvailable" height="320px" width = "250px"></img><h4>{this.props.name}</h4>{this.props.title} <h4>Price : Rs. {this.props.price}</h4>
 </div>
         
         );  
@@ -58,6 +56,7 @@ class ProductLists extends React.Component {
         return (
             <div>
              <NavBar/>
+             <div class="grid-container">   
             {(this.state.products).map((product) => (
                 <ProductListingPage
                 title={product.title}
@@ -70,6 +69,8 @@ class ProductLists extends React.Component {
 
 
               ))}
+              </div>
+
 
             </div>
         );

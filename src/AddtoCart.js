@@ -64,7 +64,7 @@ class AddtoCart extends React.Component {
    
     render() {
         return (
-          window.location = `/cart/cartitems`
+          window.location = `/products/${this.props.match.params.productid}`
               
         );
     }

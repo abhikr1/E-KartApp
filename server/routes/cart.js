@@ -11,75 +11,16 @@ router.get('/cartitems', (req, res) => {
     console.log("JJJJJJj")
     console.log(req.session)
     console.log("uuuuu")
-    Cart.findOne({ _id: req.session.cartId }).then(user => {
-        if(user)
-        res.send(user);
+    Cart.findOne({ _id: req.session.cartId }).then(cart => {
+        console.log(cart)
+        if(cart)
+        res.send(cart);
         else
         res.send({message : "No products"})
     }).catch(() => {
         res.status(500).send({ error: "Internal Server Error" });
     });
 });
-
-// router.post('/mycart', (req, res) => {
-//     console.log("Hi");
-
-//     const productId = req.body.productId;   
-//     const mrp = req.body.mrp;
-//     const lp = req.body.lp;
-//     console.log(lp);
-//     console.log(productId);
-
-//                 Cart.findOne({ productId : productId })
-//                 .then(blog => {
-//                     if(blog){
-//                         console.log("iiiii")
-//                         console.log(blog);
-//                     console.log(blog.id)
-//                    blog.quantity++;
-//                     blog.save().then(() => {console.log("Updated");
-//                     res.status(201).send({message : 'Product Updated in D/B'});});
-
-//                 }
-//                 else{
-//                     const categorydb = new Cart({sessionid : req.session.usedId, productId : productId, "price.mrp" : mrp, quantity : 1, "price.lp" : lp});
-//                         console.log("HHHHH")
-//                         categorydb.save().then(() => {
-//                                 console.log("HHH")
-//                                 res.status(201).send({message : 'Product Added in D/B'});
-//                     })
-//                 }
-//             }, err => {
-//                     console.log(`Error in finding blog ${err}`);
-//                 });
-             
-//             });
-
-//             router.post('/:pid', (req, res) => {
-                
-//                  Cart.findOne({ _id : req.session.cartId, "productId" : req.params.pid}).then(Cart2 => {
-//                      if(Cart2){
-//                         console.log(Cart2.id)
-//                         Cart2.quantity++;
-//                         Cart2.save().then(() => {console.log("Updated");
-//                          res.status(201).send({message : 'Product Updated in D/B'});});
-//                      }
-//                         else
-//                          {
-//                             const categorydb = new Cart({productId : req.params.pid, "price.mrp" : req.body.mrp, quantity : 1, "price.lp" : req.body.lp});
-//                                 console.log("HHHHH")
-//                                 categorydb.save().then((cart3) => {
-//                                     req.session.cartId =  cart3.id;
-//                                         console.log("HHH")
-//                                         res.status(201).send({message : 'Product Added in D/B'});
-//                             })
-//                         }
-//                     }, err => {
-//     console.log(`Error in finding blog ${err}`);
-//     });
-// });
-
-
 
 router.post('/:productId', (req, res) => {
     console.log("yyyyyyyyyyyyy")
@@ -95,7 +36,7 @@ router.post('/:productId', (req, res) => {
             if(index === -1){
                 console.log("New product")
 
-                cart.items.push({productId :  req.params.productId, quantity : 1, productprice : prod.price.mrp})
+                cart.items.push({title : prod.title, name : prod.name, productId :  req.params.productId, quantity : 1, productprice : prod.price.mrp})
                 cart.totalprice = cart.totalprice + prod.price.mrp;
                 cart.save().then(() => {console.log("Updated");
                 res.status(201).send({message : 'Product Added in D/B'});});
@@ -122,7 +63,7 @@ router.post('/:productId', (req, res) => {
            else
             {   
                 console.log("Hellllllll")
-                const categorydb = new Cart({items : {productId : req.params.productId, quantity : 1 , productprice : prod.price.mrp} , totalprice:prod.price.mrp});
+                const categorydb = new Cart({items : {title : prod.title, name : prod.name, productId :  req.params.productId, quantity : 1, productprice : prod.price.mrp} , totalprice:prod.price.mrp});
                    categorydb.save().then((cart3) => {
                        req.session.cartId =  cart3.id;
                        console.log(req.session)
@@ -138,5 +79,20 @@ console.log(`Error in finding blog ${err}`);
 });
 }) 
 
-
+router.delete('/:productId', (req, res) => {
+    Cart.findOne({_id : req.session.cartId}).then(cart => {
+        let balance = 0;
+        for (var i in cart.items) {
+            if(cart.items[i].productId === req.params.productId){
+                balance = cart.items[i].productprice;
+                cart.items.splice(i, 1);
+            }
+        }
+        cart.totalprice = cart.totalprice - balance;
+        cart.save().then(() => {console.log("Deleted");
+        res.status(204).send({message : 'Product Deleted in D/B'});
+    });
+});
+ 
+});
 module.exports = router;

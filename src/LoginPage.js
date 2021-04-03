@@ -1,4 +1,6 @@
 import React from 'react';
+import './LoginPage.css';
+import NavBar from './NavBar';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -12,7 +14,13 @@ class LoginPage extends React.Component {
   componentDidMount() {
     fetch('/api/users/me').then(user => {
       if (user.status === 200) {
-        window.location = '/profile';
+        fetch('./name').then(name => {
+          console.log("Helllo")
+          console.log(name)
+
+        localStorage.setItem('user', JSON.stringify(name));
+        window.location = '/';
+      })
       }
     });
   }
@@ -23,6 +31,7 @@ class LoginPage extends React.Component {
 
   onLoginClick = e => {
     e.preventDefault();
+    console.log("Laajbxjk")
     const { email, password } = this.state;
     fetch('/api/sessions', {
       method: 'POST',
@@ -32,34 +41,58 @@ class LoginPage extends React.Component {
       }
     }).then(res => {
       if (res.status === 204) {
-        window.location = '/profile';
+        fetch('api/users/name').then(res => res.json()).then(name => {
+        localStorage.setItem('user', name.firstname);
+        window.location = '/';
+      })
       }
     });
   }
 
   onSignupClick = e => {
     e.preventDefault();
-    const { email, password } = this.state;
-    fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8'
-      }
-    });
+    // fetch('/api/users', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ email, password }),
+    //   headers: {
+    //     'Content-type': 'application/json; charset=UTF-8'
+    //   }
+    // });
+    return(
+      window.location = './signup'
+    )
   }
 
   render() {
     return (
-      <div className="LoginPage">
+      <div>
+      <NavBar/>
+      <div className = "grid-cont">
+        <div className = "grid-j">
+        </div>
+        <div className = "grid-i">
+        <div className= "heading">Login or SignUp</div>
+
         <form>
-          <input placeholder="email" name="email" required type="email" onInput={this.onInput} value={this.state.email}></input>
-          <input placeholder="password" name="password" required type="password" onInput={this.onInput} value={this.state.password}></input>
-          <div>
-            <input type="submit" onClick={this.onLoginClick} value="Login"></input>
-            <input type="submit" onClick={this.onSignupClick} value="Sign up"></input>
-          </div>
+
+            <div class = "email">
+              <input class = "email" placeholder="E-Mail" name="email" required type="email" onInput={this.onInput} value={this.state.email}></input>
+            </div>
+            <div class = "password">
+              <input class="password" placeholder="Password" name="password" required type="password" onInput={this.onInput} value={this.state.password}></input>
+            </div>
+            <div>
+              <input class = "aaa" type="submit" onClick={this.onLoginClick} value="Login"></input>
+            </div>
+          
         </form>
+        <div class = "signup">
+          <input class = "sign" type = "button" onClick={this.onSignupClick} name = "text" value="Sign Up"></input>
+        </div>
+        </div>
+        <div className = "grid-j">
+          </div>
+      </div>
       </div>
     );
   }
