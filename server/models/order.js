@@ -19,7 +19,8 @@ const orderSchema = new Schema({
         quantity: Number,
         title: String,
         name : String,
-        category: String
+        category: String,
+        productprice : Number,
       }
     ],
     amount: Number,

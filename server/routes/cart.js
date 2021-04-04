@@ -9,8 +9,17 @@ const mongoose = require('mongodb');
 router.get('/getcount',(req,res) => {
     Cart.find({_id : req.session.cartId}).then(cart => {
         if(cart){
-            return cart.items.length;
+            console.log(cart)
+            if(cart.length !== 0)
+            res.send({itemcount:cart[0].items.length});
+            else
+            res.send({itemcount:0})
         }
+        else{
+            console.log("Inside else part of getcount")
+            res.send({itemcount:0})
+        }
+
     })
 })
 router.get('/cartitems', (req, res) => {

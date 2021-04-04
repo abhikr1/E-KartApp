@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './Header';
 import Categories from './Categories';
 import NavBar from './NavBar';
+import './Orders.css';
 
 class Order extends React.Component {
   constructor(props) {
@@ -41,7 +42,8 @@ class Order extends React.Component {
     </div>
       </div>
       <div class = "grid-items5">
-           <strong>Price : Rs. {this.props.price}</strong> 
+          <div><strong>Order placed on : {this.props.createdDate}</strong></div>
+           <strong>Price : Rs. {this.props.productprice}</strong> 
         </div>
       </div>
   
@@ -76,8 +78,8 @@ class Orders extends React.Component {
       console.log(orders);
     }
 
-   
     render() {
+        if(this.state.orders.length !== 0){
         return (
             <div>
               <NavBar/>
@@ -91,6 +93,8 @@ class Orders extends React.Component {
                 price = {order.amount}
                 id = {item.productId}
                 name = {item.name}
+                productprice = {item.productprice}
+                createdDate = {order.createdAt}
                 />
                 ))
               )
@@ -99,5 +103,18 @@ class Orders extends React.Component {
               </div>
         );
     }
+    else{
+        return (
+            <div>
+            <NavBar/>
+            <div class = "emptyorder">
+                <div><strong>You don't have any orders yet!!!</strong></div>
+            </div>
+            </div>
+            )
+
+    }
+
   }
+}
   export default Orders;

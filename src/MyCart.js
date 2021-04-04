@@ -103,8 +103,9 @@ class MyCart extends React.Component {
       //console.log(this.state.items);
     }
 
-   
+
     render() {
+      if(this.state.items || this.state.items.length ){
         return (
             <div>
               <NavBar/>
@@ -128,6 +129,17 @@ class MyCart extends React.Component {
                 </div>
          </div>
         );
+        }
+        else{
+          return (
+            <div>
+            <NavBar/>
+            <div class = "emptyorder">
+                <div><strong>You have an empty cart. Hurry Up!!!</strong></div>
+            </div>
+            </div>
+            )
+        }
     }
   }
   export default MyCart;
