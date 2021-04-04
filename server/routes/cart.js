@@ -6,7 +6,13 @@ const Product = require('../models/products')
 const mongoose = require('mongodb');
 
 
-  
+router.get('/getcount',(req,res) => {
+    Cart.find({_id : req.session.cartId}).then(cart => {
+        if(cart){
+            return cart.items.length;
+        }
+    })
+})
 router.get('/cartitems', (req, res) => {
     console.log("JJJJJJj")
     console.log(req.session)

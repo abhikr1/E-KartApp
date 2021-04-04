@@ -38,13 +38,13 @@ else{
       <header class="navbar">
         <div class="companyLogo" onClick={logoclick}><img src = "/images/logo3.png" width = "40" height = "40" /></div>
     <div class = "category" onClick={() => categoriesClick('Men')}>
-        MEN
+        <strong>MEN</strong>
     </div>
-    <div class = "category">
-        WOMEN
+    <div class = "category" onClick={() => categoriesClick('Women')}>
+        <strong>WOMEN</strong>
     </div>
-    <div class = "category"> 
-        SPORTS
+    <div class = "category" onClick={() => categoriesClick('Kids')}>
+    <strong>KIDS</strong>
     </div>
 
   <SearchBar/>
@@ -63,7 +63,8 @@ else{
 
 <div>
     <span class="cart-icon" onClick={cartClick}><img src= "/images/cart.png"/></span>
-    <span class="">Cart</span>
+    <span class="pppp">Cart</span>
+    <span class="">(</span>
 </div>  
 {/* <div class = "cart-icon"   onClick={() => cartClick()}><img src= "/images/cart.png"/></div>Cart</div> */}
 </header> 
