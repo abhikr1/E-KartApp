@@ -66,3 +66,28 @@
     font-weight: 400;
     font-size: medium;
 }        
+
+@media screen and (max-width: 1100px) {
+    .grid-containerdet {
+        margin-top: 20px;
+        margin-bottom: 20px;
+          display: grid;
+          grid-template-columns: 1fr 1fr ;
+          grid-gap: 5px;
+         background-color: whitesmoke;
+
+        }
+
+  }
+
+  @media screen and (max-width: 600px) {
+    .grid-containerdet {
+        margin-top: 20px;
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-gap: 5px;
+       background-color: whitesmoke;
+          
+        }
+  }

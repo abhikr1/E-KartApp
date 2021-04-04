@@ -15,9 +15,10 @@ const orderSchema = new Schema({
     user_id: mongoose.ObjectId,
     items: [
       {
-        product_id: mongoose.ObjectId,
+        productId: mongoose.ObjectId,
         quantity: Number,
         title: String,
+        name : String,
         category: String
       }
     ],

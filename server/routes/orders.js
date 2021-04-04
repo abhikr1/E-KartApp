@@ -20,7 +20,6 @@ const rzpInstance = new Razorpay({
 });
 
 router.get('/myorders', (req,res) => {
-    console.log("OOOOOOOO");
     Order.find({user_id : req.session.userId}).then(
         order => {
             console.log(order)
@@ -50,6 +49,8 @@ router.post('/', auth.authenticate, (req, res) => {
     Cart.findOne({ _id: req.session.cartId }).then(cart => {
         const { items, totalprice } = cart;
         const amount = totalprice * 100;
+        console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
+        console.log(items);
         const order = new Order({ user_id: req.session.userId, amount, currency, status: 'CREATED', items });
         order.save().then(() => {
             const orderId = order.id;

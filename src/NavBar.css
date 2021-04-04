@@ -105,6 +105,8 @@
   }
   .category{
     cursor: pointer;
+    letter-spacing: 0.7px;
+    color:#282c3f;
 
   }
   .contents{

@@ -73,7 +73,8 @@ class MyCart extends React.Component {
   
       this.state = {
         items: [],
-        price : {}
+        price : {},
+        info: {},
       };
   
       this.getRandomUsers = this.getRandomUsers.bind(this);
@@ -95,6 +96,9 @@ class MyCart extends React.Component {
       //console.log(cart)
       this.setState({ items : cart.items });
       this.setState({price : cart})
+      if(this.state.items){
+          this.setState({info: "A"});
+      }
 
       //console.log(this.state.items);
     }
