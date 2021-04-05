@@ -8,7 +8,7 @@
     margin-top: 190px;
  }
 
- .aaa{
+ .aaa2{
     border-radius: 0;
     padding: 12px 15px;
     min-width: 285px;
@@ -22,7 +22,7 @@
     font-size: medium;
     align-items: center;
  }
- .email{
+ .email2{
     border-radius: 0;
     border-color:rgb(245, 242, 242);
     min-width: 280px;
@@ -35,7 +35,7 @@
 
  }
 
- .password{
+ .password2{
     border-radius: 0;
     border-color:rgb(245, 242, 242);
     min-width: 280px;
@@ -47,7 +47,19 @@
     padding-bottom: 10px;
 
  }
- .grid-cont{
+ .details{
+    border-radius: 0;
+    border-color:rgb(245, 242, 242);
+    min-width: 280px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 3%;;
+        font-size: medium;
+    align-items: center;
+    padding-bottom: 10px;
+
+ }
+ .grid-cont2{
     margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -87,5 +99,124 @@
   }
 
   .heading{
-      padding-top: 10px;
+    
+    text-align: center;
+    font-weight: 900;
+
+  }
+
+  @media screen and (max-width: 1000px) {
+    .grid-cont2{
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-gap: 5px;
+        background-color: whitesmoke;
+        width: 100vw;
+        height: 100vh;
+        grid-auto-flow: column;
+    
+     }
+    .aaa2{
+        border-radius: 0;
+        padding: 12px 15px;
+        min-width: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        background-color: #ff3e6c;
+        border: 1px solid #ff3e6c;
+        border-color: #ff3e6c;
+        border-radius: 3%;;
+        color: #fff;
+        font-size: medium;
+        align-items: center;
+     }
+     .email2{
+        border-radius: 0;
+        border-color:rgb(245, 242, 242);
+        min-width: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 3%;
+        font-size: medium;
+        padding-bottom: 10px;
+        margin-top: 15vh;
+     }
+    
+     .password2{
+        border-radius: 0;
+        border-color:rgb(245, 242, 242);
+        min-width: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 3%;;
+            font-size: medium;
+        align-items: center;
+        padding-bottom: 10px;
+    
+     }
+     .details{
+        border-radius: 0;
+        border-color:rgb(245, 242, 242);
+        min-width: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 3%;;
+            font-size: medium;
+        align-items: center;
+        padding-bottom: 10px;
+    
+     }
+  }
+  @media screen and (max-width: 600px) {
+    .aaa2{
+        border-radius: 0;
+        padding: 12px 15px;
+        min-width: 10px;
+        font-weight: 500;
+        cursor: pointer;
+        background-color: #ff3e6c;
+        border: 1px solid #ff3e6c;
+        border-color: #ff3e6c;
+        border-radius: 3%;;
+        color: #fff;
+        font-size: medium;
+        align-items: center;
+     }
+     .email2{
+        border-radius: 0;
+        border-color:rgb(245, 242, 242);
+        min-width: 10px;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 3%;
+        font-size: medium;
+        padding-bottom: 10px;
+        margin-top: 15vh;
+     }
+    
+     .password2{
+        border-radius: 0;
+        border-color:rgb(245, 242, 242);
+        min-width: 10px;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 3%;;
+            font-size: medium;
+        align-items: center;
+        padding-bottom: 10px;
+    
+     }
+     .details{
+        border-radius: 0;
+        border-color:rgb(245, 242, 242);
+        min-width: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 3%;;
+            font-size: medium;
+        align-items: center;
+        padding-bottom: 10px;
+    
+     }
   }

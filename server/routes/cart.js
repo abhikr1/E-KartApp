@@ -6,6 +6,15 @@ const Product = require('../models/products')
 const mongoose = require('mongodb');
 
 
+
+router.get('/', auth.authenticate, (req,res) => {
+        if (!req.session.userId) {
+            res.status(401).send({ error: "Not logged in"});
+        }
+        else{
+            res.status(200).send({message : "Successful"});
+        }
+})
 router.get('/getcount',(req,res) => {
     Cart.find({_id : req.session.cartId}).then(cart => {
         if(cart){
@@ -110,4 +119,6 @@ router.delete('/:productId', (req, res) => {
 });
  
 });
+
+
 module.exports = router;

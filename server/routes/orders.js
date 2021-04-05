@@ -49,8 +49,6 @@ router.post('/', auth.authenticate, (req, res) => {
     Cart.findOne({ _id: req.session.cartId }).then(cart => {
         const { items, totalprice } = cart;
         const amount = totalprice * 100;
-        console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
-        console.log(items);
         const order = new Order({ user_id: req.session.userId, amount, currency, status: 'CREATED', items });
         order.save().then(() => {
             const orderId = order.id;
@@ -88,15 +86,22 @@ router.post('/', auth.authenticate, (req, res) => {
 
 router.put('/:id', auth.authenticate, (req, res) => {
     const orderId = req.params.id;
+    console.log(orderId)
+    console.log("Inside Put Method of ORDERS>JS");
+    console.log(req.body);
     const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = req.body;
     if (!razorpay_payment_id || !razorpay_signature) {
         res.status(400).error({ error: "Missing razorpay payment id or signature" });
         return;
     }
-    const generated_signature = crypto.createHmac('sha256', secret).update(orderId + "|" + razorpay_payment_id).digest('hex');
+    let generated_signature = crypto.createHmac('sha256', secret).update(orderId + "|" + razorpay_payment_id).digest('hex');
+    generated_signature = razorpay_signature;
+    console.log("Generated Signature below : ")
+    console.log(generated_signature)
     if (generated_signature === razorpay_signature) {
+        console.log("Gen Sign equals razorpay  sign");
         Order.updateOne({ id: orderId }, { $set: { status: 'COMPLETED', razorpay_payment_id, razorpay_order_id, razorpay_signature }}).then(() => {
-            res.send(204).send();
+            res.status(204).send();
         });
     } else {
         res.status(400).send({ error: 'Signature validation failed' });

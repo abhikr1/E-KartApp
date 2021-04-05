@@ -74,7 +74,7 @@ router.get('/:userId', (req, res) => {
 
 router.put('/me', auth.authenticate, (req, res) => {
     if (!req.session.userId) {
-        res.send(401).send({ error: "Not logged in"});
+        res.status(401).send({ error: "Not logged in"});
     }
 
     const { firstName, lastName } = req.body;

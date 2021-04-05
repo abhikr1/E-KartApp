@@ -1,6 +1,7 @@
 
 import React from 'react';
-
+import ProductDetails from './ProductDetails';
+import NavBar from './NavBar'
 
 class  MyCarts extends React.Component {
   constructor(props) {
@@ -56,16 +57,15 @@ class AddtoCart extends React.Component {
     }
   
     async componentDidMount() {
-    console.log("JAI MATA DI");
       const cart = await this.getRandomUsers();
       this.setState({ cart });
+    window.location = `/products/${this.props.match.params.productid}`
     }
-
    
     render() {
         return (
-          window.location = `/products/${this.props.match.params.productid}`
-              
+          <div>
+          </div>
         );
     }
   }

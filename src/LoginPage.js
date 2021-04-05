@@ -51,13 +51,6 @@ class LoginPage extends React.Component {
 
   onSignupClick = e => {
     e.preventDefault();
-    // fetch('/api/users', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ email, password }),
-    //   headers: {
-    //     'Content-type': 'application/json; charset=UTF-8'
-    //   }
-    // });
     return(
       window.location = './signup'
     )
@@ -86,8 +79,8 @@ class LoginPage extends React.Component {
             </div>
           
         </form>
-        <div class = "signup">
-          <input class = "sign" type = "button" onClick={this.onSignupClick} name = "text" value="Sign Up"></input>
+        <div class = "aaa5">
+          <input class = "aaa3" type = "button" onClick={this.onSignupClick} name = "text" value="New User? Register Here"></input>
         </div>
         </div>
         <div className = "grid-j">

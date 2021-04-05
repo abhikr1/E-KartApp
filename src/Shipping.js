@@ -79,10 +79,9 @@ class Shipping extends React.Component {
 
   }
     const categoriesClick = () => {
-      console.log("hHHHHelllloooo");
         const paymentHandlers = {
           onSuccess : (options) => {
-            fetch(`/api/orders/${options}`, {
+            fetch(`/api/orders/${options.id}`, {
   
             method: 'PUT',
             headers: {

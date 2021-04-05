@@ -56,16 +56,27 @@ const onRemoveClick = (productid) => {
       method: 'DELETE'
     }).then(res => {
       if (res.status === 204) {
-        window.location = '/';
+        window.location = '/cart/cartitems';
       }
     });
   }
 const categoriesClick = () => {
-console.log("GGGGGGGG")
+console.log("GGGGGGGG");
+    fetch('/api/cart').then(res => {
+        if (res.status === 200) {
     return (
       window.location = "/shipping"
-   );
+   );}
+   else{
+     window.location = "/login"
+   }
   
+  })
+}
+  const onShoNowClick = () => {
+    return(
+      window.location = "/"
+    )
   }
 class MyCart extends React.Component {
     constructor(props) {
@@ -104,8 +115,8 @@ class MyCart extends React.Component {
     }
 
 
-    render() {
-      if(this.state.items || this.state.items.length ){
+    render() {  
+      if(this.state.items && this.state.items.length > 0){
         return (
             <div>
               <NavBar/>
@@ -135,7 +146,11 @@ class MyCart extends React.Component {
             <div>
             <NavBar/>
             <div class = "emptyorder">
-                <div><strong>You have an empty cart. Hurry Up!!!</strong></div>
+                <div><strong>You have an empty cart.</strong></div>
+                <div>
+                <button class = "shopnow" onClick={() => onShoNowClick()}>SHOP NOW</button>
+                </div>
+
             </div>
             </div>
             )

@@ -95,80 +95,13 @@ class NavBar extends React.Component {
   
   <div>
       <span class="cart-icon" onClick={cartClick}><img src= "/images/cart.png"/></span>
-      <span class="pppp">Cart</span>
-      <span class="">({this.state.cartcount})</span>
+      <span class = "cartitems">
+              <input class="cartitems1" name="password" onInput={this.onInput} value={this.state.cartcount} readonly></input>
+            </span>  
   </div>  
-  {/* <div class = "cart-icon"   onClick={() => cartClick()}><img src= "/images/cart.png"/></div>Cart</div> */}
   </header> 
       );
 }
-// function NavBar(){
-//   const onLoginClick = () =>{
-//     return (
-//       window.location = '/login'
-//     );
-//   }
-//   async function number () {
-//     const res = await fetch(`/api/cart/getcount`);
-//     const data = await res.json();
-
-//     return data.itemcount;
-//   }
-//   const categoriesClick = (category) => {
-//     console.log('dsjvjvnvx');
-//     console.log(`hi ${category}`);
-//     return (
-//       window.location = `/products/category/${category}`
-//    );
-// }
-// const val =   number();
-// console.log(val)
-// let temp = "";
-// const loggedInUser = localStorage.getItem("user");
-// let logout;
-// if (loggedInUser) {
-//   temp = "Hello, " + loggedInUser;
-//   logout = "Logout"
-// }
-// else{
-//   temp  = "LogIn/SignUp";
-// }
-//   return (
-//       <header class="navbar">
-//         <div class="companyLogo" onClick={logoclick}><img src = "/images/logo3.png" width = "40" height = "40" /></div>
-//     <div class = "category" onClick={() => categoriesClick('Men')}>
-//         <strong>MEN</strong>
-//     </div>
-//     <div class = "category" onClick={() => categoriesClick('Women')}>
-//         <strong>WOMEN</strong>
-//     </div>
-//     <div class = "category" onClick={() => categoriesClick('Kids')}>
-//     <strong>KIDS</strong>
-//     </div>
-
-//   <SearchBar/>
-//     {/* <span class="login" onClick={onLoginClick}>Login</span>
-//     <span style={{margin: "0 10px 0 10px"}}>/</span>
-//     <span class="signup">Signup</span> */}
-    
-//         <div class="options-nav" ><img src= "/images/profileicon.png"/>
-//         <div class="contents">
-//           <span class = "box" onClick={loginclick}>{temp}</span>
-//           <span class = "box" onClick = {orderclick}>Orders</span>
-//           <span class = "box">Contact Us</span>
-//           <span class = "box" onClick={logoutclick}>{logout}</span>
-//           </div>
-//       </div>
-
-// <div>
-//     <span class="cart-icon" onClick={cartClick}><img src= "/images/cart.png"/></span>
-//     <span class="pppp">Cart</span>
-//     <span class="">({val})</span>
-// </div>  
-// {/* <div class = "cart-icon"   onClick={() => cartClick()}><img src= "/images/cart.png"/></div>Cart</div> */}
-// </header> 
-//     );
-// }
 
 }
 const orderclick = () => {
@@ -205,6 +138,15 @@ const cartClick = () => {
       window.location = `/cart/cartitems`
    );
   
+  }
+
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "navbar") {
+      x.className += " responsive";
+    } else {
+      x.className = "navbar";
+    }
   }
 
   export default NavBar;

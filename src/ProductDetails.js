@@ -37,6 +37,8 @@ class ProductDetail extends React.Component {
    </div>
   <div class = "addtocartbutton2">
   <button class = "addtocartbutton" onClick={() => categoriesClick(this.props.id)}><span class = "addtocarttext">ADD TO CART</span></button>
+  
+
   </div>
   </div>
 </div>
@@ -51,6 +53,14 @@ const categoriesClick = (productid) => {
     window.location = `/cart/${productid}`
  );
 
+// fetch(`/api/cart/${productid}`, {
+//   method: 'POST',
+//   body: JSON.stringify({}),
+//   headers: {
+//     'Content-type': 'application/json; charset=UTF-8'
+//   }
+// }).then()
+// )
 }
 
 class ProductDetails extends React.Component {
@@ -78,6 +88,7 @@ class ProductDetails extends React.Component {
 
    
     render() {
+      if(this.state.product || this.state.product.length !== 0){
         return (
             <div>
               <NavBar/>
@@ -96,5 +107,12 @@ class ProductDetails extends React.Component {
          </div>
         );
     }
+    else{
+      return(
+      <NavBar/>
+      );
+
+    }
+  }
   }
   export default ProductDetails;

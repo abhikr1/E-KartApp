@@ -41,7 +41,7 @@ class SignUp extends React.Component {
         return (
             <div>
             <NavBar/>
-            <div className = "grid-cont">
+            <div className = "grid-cont2">
               <div className = "grid-j">
               </div>
               <div className = "grid-i">
@@ -49,20 +49,20 @@ class SignUp extends React.Component {
       
               <form>
       
-                  <div class = "email">
-                    <input class = "email" placeholder="E-Mail" name="email" required type="email" onInput={this.onInput} value={this.state.email}></input>
+                  <div class = "email2">
+                    <input class = "email2" placeholder="E-Mail" name="email" required type="email" onInput={this.onInput} value={this.state.email}></input>
                   </div>
-                  <div class = "password">
-                    <input class="password" placeholder="Password" name="password" required type="password" onInput={this.onInput} value={this.state.password}></input>
+                  <div class = "password2">
+                    <input class="password2" placeholder="Password" name="password" required type="password" onInput={this.onInput} value={this.state.password}></input>
                   </div>
-                  <div class = "password">
-                    <input class="password" placeholder="First Name" name="firstname" required type="name" onInput={this.onInput} value={this.state.firstname}></input>
+                  <div class = "details">
+                    <input class="details" placeholder="First Name" name="firstname" required type="name" onInput={this.onInput} value={this.state.firstname}></input>
                   </div>
-                  <div class = "password">
-                    <input class="password" placeholder="Last Name" name="lastname" required type="name" onInput={this.onInput} value={this.state.lastname}></input>
+                  <div class = "details">
+                    <input class="details" placeholder="Last Name" name="lastname" required type="name" onInput={this.onInput} value={this.state.lastname}></input>
                   </div>
                   <div>
-                    <input class = "aaa" type="submit" onClick={this.onSignUpClick} value="Sign Up"></input>
+                    <input class = "aaa2" type="submit" onClick={this.onSignUpClick} value="Sign Up"></input>
                   </div>
                 
               </form>
