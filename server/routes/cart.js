@@ -120,5 +120,10 @@ router.delete('/:productId', (req, res) => {
  
 });
 
+router.delete('/delete/me', (req, res) => {
+    delete req.session.cartId;
+    res.status(204).send();
+});
+
 
 module.exports = router;

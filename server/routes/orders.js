@@ -1,6 +1,7 @@
 const express = require('express');
 const Razorpay = require('razorpay');
 const crypto = require("crypto");
+const axios = require('axios')
 require('dotenv').config();
 
 const auth = require("../middlewares/auth");
@@ -56,7 +57,7 @@ router.post('/', auth.authenticate, (req, res) => {
                 amount,
                 currency,
                 //receipt denotes our order id on Razorpay
-                receipt: orderId,
+                // receipt: orderId,
             };
 
             //Create order on razorpay
@@ -90,19 +91,34 @@ router.put('/:id', auth.authenticate, (req, res) => {
     console.log("Inside Put Method of ORDERS>JS");
     console.log(req.body);
     const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = req.body;
+    console.log(razorpay_signature);
+
     if (!razorpay_payment_id || !razorpay_signature) {
         res.status(400).error({ error: "Missing razorpay payment id or signature" });
         return;
     }
-    let generated_signature = crypto.createHmac('sha256', secret).update(orderId + "|" + razorpay_payment_id).digest('hex');
-    generated_signature = razorpay_signature;
+    // let generated_signature = crypto.createHmac('sha256', secret).update(orderId + "|" + razorpay_payment_id).digest('hex');
+    let generated_signature2 = crypto.createHmac('sha256', secret).update(razorpay_order_id + "|" + razorpay_payment_id).digest('hex');
+
     console.log("Generated Signature below : ")
-    console.log(generated_signature)
-    if (generated_signature === razorpay_signature) {
+    console.log(generated_signature2);
+    if (generated_signature2 === razorpay_signature) {
         console.log("Gen Sign equals razorpay  sign");
-        Order.updateOne({ id: orderId }, { $set: { status: 'COMPLETED', razorpay_payment_id, razorpay_order_id, razorpay_signature }}).then(() => {
+
+        // Cart.findOne({_id: req.session.cartId}).then({
+        //     delete req.session.cartId;
+        //     res.status(204).send();
+        // })
+        Order.updateOne({_id: orderId }, { $set: { status: 'COMPLETED', razorpay_payment_id, razorpay_order_id, razorpay_signature }}).then(() => {
             res.status(204).send();
         });
+        axios.delete('http://localhost:3000/api/cart/delete/me').then(
+            res=>{
+                console.log(res)
+            }).catch(err => {
+                console.error("iiiiiiiiiiiiiiii")
+                console.error(err)})
+
     } else {
         res.status(400).send({ error: 'Signature validation failed' });
         return;
