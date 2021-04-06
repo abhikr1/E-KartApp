@@ -136,9 +136,6 @@ class MyCart extends React.Component {
          </div>
         );
         }
-        else if(this.state.items){
-          
-        }
         else{
           return (
             <div>
