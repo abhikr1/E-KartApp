@@ -15,9 +15,6 @@ class LoginPage extends React.Component {
     fetch('/api/users/me').then(user => {
       if (user.status === 200) {
         fetch('./name').then(name => {
-          console.log("Helllo")
-          console.log(name)
-
         localStorage.setItem('user', JSON.stringify(name));
         window.location = '/';
       })
@@ -31,7 +28,6 @@ class LoginPage extends React.Component {
 
   onLoginClick = e => {
     e.preventDefault();
-    console.log("Laajbxjk")
     const { email, password } = this.state;
     fetch('/api/sessions', {
       method: 'POST',

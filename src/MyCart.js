@@ -8,10 +8,7 @@ class  MyCarts extends React.Component {
       super(props);
   }
   render (){
-      console.log("hhhh")
       const src = this.props.title;
-      console.log("llll")
-      console.log(this.props.id);
       const image = `/images/${this.props.id}.jpg`;
       return (
         <div class="grid-container33">   
@@ -61,7 +58,6 @@ const onRemoveClick = (productid) => {
     });
   }
 const categoriesClick = () => {
-console.log("GGGGGGGG");
     fetch('/api/cart').then(res => {
         if (res.status === 200) {
     return (
@@ -101,7 +97,6 @@ class MyCart extends React.Component {
     }
   
     async componentDidMount() {
-    console.log("Helllo");
       const cart = await this.getRandomUsers();
 
       //console.log(cart)
@@ -140,6 +135,9 @@ class MyCart extends React.Component {
                 </div>
          </div>
         );
+        }
+        else if(this.state.items){
+          
         }
         else{
           return (

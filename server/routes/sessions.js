@@ -42,8 +42,15 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/me', (req, res) => {
+    console.log("QQQQQQQQQQQQQQQQQQQQ");
+    console.log(req.session);
     delete req.session.userId;
-    res.status(204).send();
+    console.log(req.session);
+    delete req.session.cartId;
+    console.log(req.session)
+
+        res.status(204).send();
+
 });
 
 module.exports = router;

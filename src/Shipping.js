@@ -91,8 +91,16 @@ class Shipping extends React.Component {
             })
             .then(res => res.json())
             .then(res => {
-              if(res.state > 300){
-                window.location = '/orders/${options.id}'
+              // console.log("After payment response")
+              // console.log(res)
+              // alert("Testing");
+              if(res.status > 300){
+
+                // window.location = '/orders/${options.id}'
+                return(
+                  window.location = '/myorders'
+                  );
+              
               }
             })
           },
@@ -100,13 +108,12 @@ class Shipping extends React.Component {
   
           }
         }
+
         const onOrderCreateFailure = (err) => {
   
         }
         initiatePayment(paymentHandlers, onOrderCreateFailure);
-  
         
-    
     }
 
   

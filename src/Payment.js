@@ -14,11 +14,11 @@ import NavBar from './NavBar'
             amount: res.amount,
             currency: res.currency,
             order_id: res.rzpOrderId,
-            name: 'Avengers.tech',
+            name: 'Avengers-Kart',
             image: '/images/logo3.png',
             description: 'E Commerce',
             theme: {
-                color: '#276ef1',
+                color: '#ff3e6c',
             },
             modal: {
                 ondismiss: paymentHandlers.onDismiss || (() => {}),

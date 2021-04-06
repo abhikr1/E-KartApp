@@ -80,10 +80,7 @@
       display: none;
     }
   
-    .dropdown-content a:hover{
-      color:#84c225;
-      background-color: #e7e7e7; 
-    }
+  
     
     .dropdown-nav:hover .dropdown-content{
           display: block;

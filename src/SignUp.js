@@ -18,9 +18,7 @@ class SignUp extends React.Component {
 
     }
     onSignUpClick = e =>{
-        console.log("hellohi");
-        console.log("HHHH");
-        alert("JJJ");
+      console.log("WWWWWWWWWWWWWWWWWWWWWWWWWW");
         const { email, password, firstname, lastname} = this.state;
         fetch('/api/users', {
             method: 'POST',

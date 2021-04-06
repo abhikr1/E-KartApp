@@ -103,6 +103,7 @@ router.put('/:id', auth.authenticate, (req, res) => {
     console.log("Generated Signature below : ")
     console.log(generated_signature2);
     if (generated_signature2 === razorpay_signature) {
+    
         console.log("Gen Sign equals razorpay  sign");
 
         // Cart.findOne({_id: req.session.cartId}).then({
@@ -112,17 +113,12 @@ router.put('/:id', auth.authenticate, (req, res) => {
         Order.updateOne({_id: orderId }, { $set: { status: 'COMPLETED', razorpay_payment_id, razorpay_order_id, razorpay_signature }}).then(() => {
             res.status(204).send();
         });
-        axios.delete('http://localhost:3000/api/cart/delete/me').then(
-            res=>{
-                console.log(res)
-            }).catch(err => {
-                console.error("iiiiiiiiiiiiiiii")
-                console.error(err)})
+        console.log(req.session);
+            delete req.session.cartId;
+            console.log(req.session);
 
-    } else {
-        res.status(400).send({ error: 'Signature validation failed' });
-        return;
+        
     }
-});
+})
 
 module.exports = router;

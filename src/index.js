@@ -27,6 +27,7 @@ function App() {
           <Route exact path="/login" component = {LoginPage} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/order/myorders" component={Orders} />
+          {/* <Route exact path = "/order/:optionsid" component={Orders}></Route> */}
           
           </Switch>
       </Router>
