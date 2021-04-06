@@ -18,7 +18,6 @@ class SignUp extends React.Component {
 
     }
     onSignUpClick = e =>{
-      console.log("WWWWWWWWWWWWWWWWWWWWWWWWWW");
         const { email, password, firstname, lastname} = this.state;
         fetch('/api/users', {
             method: 'POST',
@@ -59,11 +58,12 @@ class SignUp extends React.Component {
                   <div class = "details">
                     <input class="details" placeholder="Last Name" name="lastname" required type="name" onInput={this.onInput} value={this.state.lastname}></input>
                   </div>
-                  <div>
-                    <input class = "aaa2" type="submit" onClick={this.onSignUpClick} value="Sign Up"></input>
-                  </div>
+
                 
               </form>
+              <div>
+                    <input class = "aaa2" type="submit" onClick={this.onSignUpClick} value="Sign Up"></input>
+                  </div>
               </div>
               <div className = "grid-j">
                 </div>

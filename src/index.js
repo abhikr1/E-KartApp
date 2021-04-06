@@ -8,7 +8,6 @@ import ProductDetails from './ProductDetails';
 import MyCart from './MyCart';
 import AddtoCart from './AddtoCart';
 import Shipping from './Shipping';
-import PlaceOrder from './PlaceOrder';
 import LoginPage from './LoginPage';
 import SignUp from './SignUp'
 import Orders from './Orders'
@@ -23,7 +22,6 @@ function App() {
           <Route exact path="/cart/cartitems" component={MyCart} />
           <Route exact path="/cart/:productid" component = {AddtoCart} />
           <Route exact path="/shipping" component = {Shipping} />
-          <Route exact path="/placeorder" component = {PlaceOrder} />
           <Route exact path="/login" component = {LoginPage} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/order/myorders" component={Orders} />

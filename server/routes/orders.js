@@ -97,25 +97,12 @@ router.put('/:id', auth.authenticate, (req, res) => {
         res.status(400).error({ error: "Missing razorpay payment id or signature" });
         return;
     }
-    // let generated_signature = crypto.createHmac('sha256', secret).update(orderId + "|" + razorpay_payment_id).digest('hex');
     let generated_signature2 = crypto.createHmac('sha256', secret).update(razorpay_order_id + "|" + razorpay_payment_id).digest('hex');
-
-    console.log("Generated Signature below : ")
-    console.log(generated_signature2);
     if (generated_signature2 === razorpay_signature) {
-    
-        console.log("Gen Sign equals razorpay  sign");
-
-        // Cart.findOne({_id: req.session.cartId}).then({
-        //     delete req.session.cartId;
-        //     res.status(204).send();
-        // })
         Order.updateOne({_id: orderId }, { $set: { status: 'COMPLETED', razorpay_payment_id, razorpay_order_id, razorpay_signature }}).then(() => {
             res.status(204).send();
         });
-        console.log(req.session);
             delete req.session.cartId;
-            console.log(req.session);
 
         
     }
