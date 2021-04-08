@@ -64,7 +64,7 @@ class NavBar extends React.Component {
     logout = "Logout"
   }
   else{
-    temp  = "LogIn/SignUp";
+    temp  = "Login / Signup";
   }
     return (
         <header class="navbar">

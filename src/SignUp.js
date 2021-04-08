@@ -47,16 +47,16 @@ class SignUp extends React.Component {
               <form>
       
                   <div class = "email2">
-                    <input class = "email2" placeholder="E-Mail" name="email" required type="email" onInput={this.onInput} value={this.state.email}></input>
+                    <input class = "email2" placeholder="E-Mail" name="email" type="email" onInput={this.onInput} value={this.state.email} required></input>
                   </div>
                   <div class = "password2">
-                    <input class="password2" placeholder="Password" name="password" required type="password" onInput={this.onInput} value={this.state.password}></input>
+                    <input class="password2" placeholder="Password" name="password" type="password" onInput={this.onInput} value={this.state.password} required></input>
                   </div>
                   <div class = "details">
-                    <input class="details" placeholder="First Name" name="firstname" required type="name" onInput={this.onInput} value={this.state.firstname}></input>
+                    <input class="details" placeholder="First Name" name="firstname" type="name" onInput={this.onInput} value={this.state.firstname} required></input>
                   </div>
                   <div class = "details">
-                    <input class="details" placeholder="Last Name" name="lastname" required type="name" onInput={this.onInput} value={this.state.lastname}></input>
+                    <input class="details" placeholder="Last Name" name="lastname" type="name" onInput={this.onInput} value={this.state.lastname} required></input>
                   </div>
 
                 

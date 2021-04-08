@@ -23,7 +23,7 @@ function Banner() {
   return (
     <div className="App">
      <AliceCarousel autoPlay activeIndex infinite disableButtonsControls autoPlayInterval="3000">
-      <img src="/images/Banner1.webp" className="sliderimg" alt=""/>
+     <a href="/products/606698618aaa200aad49b355"><img src="/images/Banner1.webp" className="sliderimg" alt=""/></a>
       <img src="/images/Banner2.webp" className="sliderimg" alt=""/>
       <img src="/images/Banner3.webp" className="sliderimg" alt=""/>
       <img src="/images/Banner4.webp" className="sliderimg" alt=""/>

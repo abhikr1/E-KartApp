@@ -47,9 +47,21 @@ class ProductDetail extends React.Component {
   }
 }
 const categoriesClick = (productid) => {
-  return (
-    window.location = `/cart/${productid}`
- );
+  const res = fetch(`/api/cart/${productid}`, {
+    method: 'POST',
+    body: JSON.stringify({}),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8'
+    }
+  }).then(
+    <ProductDetails/>
+  );
+  // const data = res.json();
+  // console.log(data);
+  // return data;
+//   return (
+//     window.location = `/cart/${productid}`
+//  );
 
 // fetch(`/api/cart/${productid}`, {
 //   method: 'POST',

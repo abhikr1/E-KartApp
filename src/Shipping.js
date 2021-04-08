@@ -67,7 +67,7 @@ class Shipping extends React.Component {
               
             </form>
             <div>
-                <button class ="aaa" type="submit" onClick = {() => categoriesClick()}>Proced to Pay</button>
+                <button class ="aaa" type="submit" onClick = {() => categoriesClick()}>Proceed to Pay</button>
                 </div>
             </div>
             <div className = "grid-j">
@@ -81,28 +81,25 @@ class Shipping extends React.Component {
     const categoriesClick = () => {
         const paymentHandlers = {
           onSuccess : (options) => {
+            console.log("there")
             fetch(`/api/orders/${options.id}`, {
-  
             method: 'PUT',
             headers: {
               'Content-type': 'application/json; charset=UTF-8'
             },
             body: JSON.stringify(options)
             })
-            .then(res => res.json())
             .then(res => {
-              // console.log("After payment response")
-              // console.log(res)
-              // alert("Testing");
-              if(res.status > 300){
-
-                // window.location = '/orders/${options.id}'
+              console.log(res)
+              if(res.status < 300){
                 return(
-                  window.location = '/myorders'
+                  window.location = '/order/myorders'
                   );
               
               }
-            })
+            }
+              
+              )
           },
           onDismiss: () => {
   

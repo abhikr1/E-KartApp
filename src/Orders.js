@@ -9,11 +9,11 @@ class Order extends React.Component {
       super(props);
   }
   render (){
-        console.log("hhhh")
         const src = this.props.title;
-        console.log("llll")
         console.log(this.props.id);
         const image = `/images/${this.props.id}.jpg`;
+         let orderdate = (new Date(this.props.createdDate)).toString();
+        orderdate = orderdate.substring(0, 25);
         return (
           <div class="grid-container33">   
                 <div class = "grid-items3">
@@ -41,7 +41,8 @@ class Order extends React.Component {
     </div>
       </div>
       <div class = "grid-items5">
-          <div><strong>Order placed on : {this.props.createdDate}</strong></div>
+          <div><strong>Order placed on : {orderdate}</strong></div>
+
            <strong>Price : Rs. {this.props.productprice}</strong> 
         </div>
       </div>
