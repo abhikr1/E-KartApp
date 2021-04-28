@@ -34,11 +34,14 @@ class NavBar extends React.Component {
     const cartcount = await this.getRandomUsers();
 
     if(cartcount){
-    this.setState({ cartcount });
+    this.props.updateCartCount &&
+    this.props.updateCartCount(cartcount);
     }
     else{
-      this.setState({cartcount : 0})
+      this.props.updateCartCount &&
+      this.props.updateCartCount(0);
     }
+    //check if props has an object called update
   }
 
  
@@ -96,7 +99,7 @@ class NavBar extends React.Component {
   <div>
       <span class="cart-icon" onClick={cartClick}><img src= "/images/cart.png"/></span>
       <span class = "cartitems">
-              {this.state.cartcount}
+              {this.props.cartCount}
             </span>  
             </div>
   </header> 
@@ -133,7 +136,6 @@ const loginclick = () => {
 
 }
 const cartClick = () => {
-    console.log('dsjvjvnvx');
     return (
       window.location = `/cart/cartitems`
    );

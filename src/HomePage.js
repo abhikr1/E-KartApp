@@ -6,18 +6,29 @@ import Product from "./Product"
 import NavBar from "./NavBar"
 import Deals from "./Deals";
 
-const HomePage = () => {
+class HomePage extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        cartCount : 0,
+      };
+  }
+  render (){
 
     return (
       <div className="App">
-        <NavBar/>
+        <NavBar cartCount={this.state.cartCount} updateCartCount={this.updateCartCount} />
         <Banner/>
         <Deals/>
         <Product/>
         <Footer /> 
       </div>
     );
+  };
+   updateCartCount = (count) => {
+
+    this.setState({cartCount : count});
   }
 
-
+}
 export default HomePage;
