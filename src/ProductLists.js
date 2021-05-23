@@ -5,7 +5,12 @@ import NavBar from './NavBar';
 class ProductListingPage extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+          cartCount : 0,
+        };
+    
     }
+    
     render (){
         console.log(this.props.id);
         const image = `/images/${this.props.id}.jpg`;
@@ -49,11 +54,13 @@ class ProductLists extends React.Component {
       this.setState({ products });
     }
 
-   
+    updateCartCount = (cartCount) => {
+      this.setState({cartCount})
+    }
     render() {
         return (
             <div>
-             <NavBar/>
+              <NavBar cartCount = {this.state.cartCount} updateCartCount={this.updateCartCount}/>
              <div class="grid-container1">   
             {(this.state.products).map((product) => (
                 <ProductListingPage

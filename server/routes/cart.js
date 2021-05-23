@@ -10,7 +10,7 @@ const mongoose = require('mongodb');
 router.get('/', auth.authenticate, (req,res) => {
         if (!req.session.userId) {
             res.status(401).send({ error: "Not logged in"});
-        }
+        } 
         else{
             res.status(200).send({message : "Successful"});
         }
@@ -55,25 +55,25 @@ router.post('/:productId', (req, res) => {
         if(cart){
             // var result = cart.items.filter(x => x.productId === req.params.productId);
             var index = cart.items.findIndex(function(item, i){
+
                 return item.productId === req.params.productId;
+
               });
             if(index === -1){
-                console.log("New product")
 
                 cart.items.push({title : prod.title, name : prod.name, productId :  req.params.productId, quantity : 1, productprice : prod.price.mrp})
                 cart.totalprice = cart.totalprice + prod.price.mrp;
-                cart.save().then(() => {console.log("Updated");
-                res.status(201).send({message : 'Product Added in D/B'});});
+                cart.save()
+                .then(() => {
+                res.status(201).send({message : 'Product Added in D/B'});
+            });
 
             }
             else{
                 console.log(req.session.cartId)
-                console.log("Existing product")
                 //result.quantity = result.quantity + 1;
                 cart.items[index].quantity++;
-                console.log("jjjjjjjjjjjjj")
                 const prodprice = cart.items[index].productprice + prod.price.mrp;
-                console.log("jjjjjjjjjjjjj")
 
                 console.log(prodprice);
                 cart.items[index].productprice = prodprice;
@@ -86,7 +86,6 @@ router.post('/:productId', (req, res) => {
         }
            else
             {   
-                console.log("Hellllllll")
                 const categorydb = new Cart({items : {title : prod.title, name : prod.name, productId :  req.params.productId, quantity : 1, productprice : prod.price.mrp} , totalprice:prod.price.mrp});
                    categorydb.save().then((cart3) => {
                        req.session.cartId =  cart3.id;

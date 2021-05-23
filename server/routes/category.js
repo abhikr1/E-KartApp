@@ -6,12 +6,10 @@ const Category = require('../models/category.js');
 
 
 router.get('/allcategory', (req, res) =>{   
-    console.log("Hellllllll")
     console.log(req.session.id)
 
     Category.find({})
         .then(user => {    
-            console.log("KKK")
             console.log(user._id)   
            if(!user) {       
               res.status(404).send();      

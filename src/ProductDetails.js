@@ -29,13 +29,10 @@ class ProductDetails extends React.Component {
       this.setState({ product });
     }
    updateCartCount = (cartCount) => {
-     alert("XXXXXXXXXXXXXX");
      this.setState({cartCount})
-     alert(this.state.cartCount);
    }
     render() {
       
-
       if(this.state.product || this.state.product.length !== 0){
         return (
             <div>
@@ -58,8 +55,8 @@ class ProductDetails extends React.Component {
     }
     else{
       return(
-      <NavBar/>
-      );
+        <NavBar cartCount = {this.state.cartCount} updateCartCount={this.updateCartCount}/>
+        );
 
     }
   }

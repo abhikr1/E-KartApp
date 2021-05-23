@@ -6,6 +6,7 @@ import './MyCart.css'
 class  MyCarts extends React.Component {
   constructor(props) {
       super(props);
+      
   }
   render (){
       const src = this.props.title;
@@ -82,6 +83,7 @@ class MyCart extends React.Component {
         items: [],
         price : {},
         info: {},
+        cartCount : 0,
       };
   
       this.getRandomUsers = this.getRandomUsers.bind(this);
@@ -109,12 +111,15 @@ class MyCart extends React.Component {
       //console.log(this.state.items);
     }
 
+    updateCartCount = (cartCount) => {
+      this.setState({cartCount})
+    }
 
     render() {  
       if(this.state.items && this.state.items.length > 0){
         return (
             <div>
-              <NavBar/>
+              <NavBar cartCount = {this.state.cartCount} updateCartCount={this.updateCartCount}/>
               <div class="grid-container22">   
               <div class = "grid-items1">
                 {(this.state.items.map((eachitem) => (
@@ -139,7 +144,7 @@ class MyCart extends React.Component {
         else{
           return (
             <div>
-            <NavBar/>
+              <NavBar cartCount = {this.state.cartCount} updateCartCount={this.updateCartCount}/>
             <div class = "emptyorder">
                 <div><strong>You have an empty cart.</strong></div>
                 <div>

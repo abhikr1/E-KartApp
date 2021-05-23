@@ -12,9 +12,12 @@ class ProductDetail extends React.Component {
           headers: {
             'Content-type': 'application/json; charset=UTF-8'
           }
-        }).then(
-          
-            this.getCartCount()
+        }).then(res => {
+          if(res.ok === true)
+          this.getCartCount()
+
+        }
+            
       
         );
       
