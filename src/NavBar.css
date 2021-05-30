@@ -38,7 +38,7 @@
   }
   
   .SearchInput {
-      background-color: whitesmoke;
+    background-color: whitesmoke;
     padding-left: 10px;
     width: 393px;
     height: 30px;
@@ -152,8 +152,35 @@
   margin-top: -15px;
 
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .SearchBar
   {display: none;}
-
+  
+  .contents  .box{
+    display: block;
+    text-decoration: none;
+    min-width: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 40px;
+    color:black;
+    background-color: #f6f8fa;
+    box-shadow: 1px 2px 2px rgb(0 0 0 / 10%), -1px -1px 2px rgb(0 0 0 / 8%);
+  }
+}
+@media screen and (max-width: 800px) {
+  .SearchBar
+  {display: none;}
+  
+  .contents  .box{
+    display: block;
+    text-decoration: none;
+    min-width: 70px;
+    padding-right: 10px;
+    line-height: 40px;
+    color:black;
+    background-color: #f6f8fa;
+    box-shadow: 1px 2px 2px rgb(0 0 0 / 10%), -1px -1px 2px rgb(0 0 0 / 8%);
+    font-size: 7px;
+  }
 }

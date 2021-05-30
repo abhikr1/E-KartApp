@@ -38,10 +38,10 @@ class ProductDetail extends React.Component {
           <div>
           <div class="grid-containerdet"> 
           <div>
-    <img src = {image} height="100" alt="NotAvailable" height = "600px" widht = "150px"></img>
+    <img src = {image} alt="NotAvailable" className="firstImage"></img>
     </div>
     <div>
-    <img src = {image2} height="100" alt="NotAvailable" height = "600px" widht = "150px"></img>
+    <img src = {image2} alt="NotAvailable" className="firstImage"></img>
     </div>
     <div>
     

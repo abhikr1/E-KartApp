@@ -4,8 +4,12 @@
       grid-template-columns: 1fr 1fr 1fr ;
       grid-gap: 5px;
       background-color: whitesmoke;
+      margin-left: 1%;
     }
-
+.firstImage{
+    height : 600px;
+    width: 31.2vw;
+}
     .pdp-name {
         color: #282c3f;
         padding: 0 20px 0 0;
@@ -75,20 +79,28 @@
           grid-template-columns: 1fr 1fr;
           grid-gap: 5px;
          background-color: whitesmoke;
+         justify-items: center;
 
         }
-
+        .firstImage{
+            height : 600px;
+            width: 47vw;
+        }
 
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 800px) {
     .grid-containerdet {
-        margin-top: 20px;
         margin-top: 20px;
         display: grid;
         grid-template-columns: 1fr ;
         grid-gap: 5px;
        background-color: whitesmoke;
-          
+       justify-items: center;
+
+        }
+        .firstImage{
+            height : 600px;
+            width: 83vw;
         }
   }

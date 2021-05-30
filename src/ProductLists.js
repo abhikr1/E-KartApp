@@ -17,7 +17,7 @@ class ProductListingPage extends React.Component {
         return (
 
 <div class = "grid-item1" onClick={() => categoriesClick(this.props.id)}>
-<img src = {image} height="100" alt="NotAvailable" height="320px" width = "250px"></img><h4>{this.props.name}</h4>{this.props.title} <h4>Price : Rs. {this.props.price}</h4>
+<img src = {image} alt="NotAvailable" height="320px" width = "250px"></img><h4>{this.props.name}</h4>{this.props.title} <h4>Price : Rs. {this.props.price}</h4>
 </div>
         
         );  
