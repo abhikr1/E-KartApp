@@ -43,7 +43,7 @@ class ProductDetail extends React.Component {
     <div>
     <img src = {image2} alt="NotAvailable" className="firstImage"></img>
     </div>
-    <div>
+    <div class = "productprice">
     
     <div class = "pdp-name">{this.props.name}</div>
     <div class = "pdp-title">{this.props.title}</div> 

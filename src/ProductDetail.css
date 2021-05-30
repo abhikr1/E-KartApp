@@ -83,8 +83,12 @@
 
         }
         .firstImage{
-            height : 600px;
+            height : 650px;
             width: 47vw;
+        }
+        .productprice{
+            margin-left: 1%;
+            margin-right: 1%;
         }
 
   }
@@ -100,7 +104,12 @@
 
         }
         .firstImage{
-            height : 600px;
-            width: 83vw;
+            height : 480px;
+            width: 73vw;
+        }
+        .productprice{
+            margin-left: 1%;
+            margin-right: 1%;
         }
   }
+

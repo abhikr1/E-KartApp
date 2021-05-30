@@ -97,7 +97,7 @@ class NavBar extends React.Component {
         </div>
   
   <div>
-      <span class="cart-icon"><img src= "/images/cart.png" alt="Cart" onClick={cartClick} /></span>
+     <img src= "/images/cart.png" alt="Cart" onClick={cartClick} />
       <span class = "cartitems">
               {this.props.cartCount}
             </span>  
